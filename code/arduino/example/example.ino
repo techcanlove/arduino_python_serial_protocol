@@ -5,8 +5,6 @@
 #define INS_LEN 1
 #define VAL_LEN 3
 #define COMMAND_LEN 4
-//const byte bufferLength = INS_LEN + VAL_LEN; //20;
-//char serialBuffer[bufferLength];
 
 char cur_command[4]={88,66,66,66};
 bool DEBUG = false;
