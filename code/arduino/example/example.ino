@@ -61,7 +61,6 @@ void loop() {
       
   } else {
     if (connection.listen_(cur_command) == C.Completed) { //serialBuffer
-      //fill_command();
       String re_msg = run_command();
 
       if (DEBUG) {
