@@ -1,8 +1,5 @@
-import sys
 import time
 import serial
-
-sys.path.insert(1, 'lib')
 
 from instruction_list import Command
 
