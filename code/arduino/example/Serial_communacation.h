@@ -27,7 +27,7 @@ class Serial_com {
       //Serial.print("try connecte\n");
       //Serial.write(C.Hi);      
       if (Serial.available()>=1 && Serial.read() == C.Hi) {
-          //Serial.flush();
+          Serial.flush();
           connected_ = true;
           Serial.write(C.ACK);
           return true ;
