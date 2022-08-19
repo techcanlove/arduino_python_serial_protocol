@@ -1,5 +1,8 @@
+import sys
 import time
 import serial
+
+sys.path.insert(1, 'lib')
 
 from instruction_list import Command
 
@@ -54,7 +57,10 @@ class communication:
                 self.con.write(ins_bytes)                              
                 self.con.write(val_bytes)
                     
-                time.sleep(self.TIMEOUT)
+                start=time.time()
+                while self.con.in_waiting<1 and time.time()-start<self.TIMEOUT:    
+                    pass
+                
                 if self.con.in_waiting>=1:    
                     res = self.con.read(size=1)
                     #self.con.flushInput()
@@ -83,7 +89,9 @@ class communication:
         try:
             if self.Connected: 
                 
-                time.sleep(self.TIMEOUT)
+                start=time.time()                                
+                while self.con.in_waiting<self.Command_len and time.time()-start<self.TIMEOUT:    
+                    pass
                 
                 if self.con.in_waiting>=self.Command_len:                    
                     buffer = self.con.read(size=self.Command_len)                     
